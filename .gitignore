@@ -1,0 +1,8 @@
+node_modules/
+dist/
+
+backend/.venv/
+backend/*.log
+backend/data/*.db
+__pycache__/
+*.py[cod]
