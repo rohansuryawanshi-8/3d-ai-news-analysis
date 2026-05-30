@@ -55,7 +55,7 @@ export function ContributionPanel() {
     setSaving(true);
 
     try {
-      const response = await fetch('/api/contributions', {
+      const response = await fetch('https://rohansuryawanshi-3d-ai-news-backend.hf.space/api/contributions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
