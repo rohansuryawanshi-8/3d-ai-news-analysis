@@ -101,7 +101,7 @@ export function AnalysisPanel() {
         setImageText(textToAnalyze);
       }
 
-      const response = await fetch('https://rohansuryawanshi-3d-ai-news-backend.hf.space/api/analyze', {
+      const response = await fetch('https://rohansuryawanshi-3d-ai-news-backend.hf.space/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
