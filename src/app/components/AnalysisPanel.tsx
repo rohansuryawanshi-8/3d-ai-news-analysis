@@ -402,11 +402,6 @@ export function AnalysisPanel() {
                           {signal.verdict}
                         </span>
                       </div>
-                      <p className="text-slate-300 text-sm mb-2">{signal.explanation}</p>
-                      <div className="flex items-center gap-2 text-xs text-slate-400">
-                        <span>score {Math.round(signal.score * 100)}%</span>
-                        <span>weight {signal.weight}</span>
-                      </div>
                     </div>
                   ))}
                   <div className="bg-white/5 border border-white/10 rounded-lg p-4 sm:col-span-2">
