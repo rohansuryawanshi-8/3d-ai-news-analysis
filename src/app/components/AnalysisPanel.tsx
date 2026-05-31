@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Upload, FileText, Image as ImageIcon, AlertCircle, CheckCircle, Trophy, Landmark, Briefcase, Film, ExternalLink, BrainCircuit } from 'lucide-react';
+import { Upload, FileText, Image as ImageIcon, AlertCircle, CheckCircle, Trophy, Landmark, Briefcase, Film, ExternalLink, BrainCircuit, Newspaper } from 'lucide-react';
 import { toast } from 'sonner';
 import { recognize } from 'tesseract.js';
 
@@ -8,7 +8,8 @@ const categories = [
   { id: 'sports', name: 'Sports', Icon: Trophy, color: '#3b82f6' },
   { id: 'politics', name: 'Politics', Icon: Landmark, color: '#ef4444' },
   { id: 'business', name: 'Business', Icon: Briefcase, color: '#10b981' },
-  { id: 'entertainment', name: 'Entertainment', Icon: Film, color: '#f59e0b' }
+  { id: 'entertainment', name: 'Entertainment', Icon: Film, color: '#f59e0b' },
+  { id: 'general', name: 'General News', Icon: Newspaper, color: '#94a3b8' }
 ];
 
 type EvidenceItem = {
@@ -209,18 +210,10 @@ export function AnalysisPanel() {
                 >
                   <IconComponent className="w-4 h-4" style={{ color: category.color }} />
                   <span className="text-white text-sm font-medium">{category.name}</span>
-                  {isDetected && (
-                    <span className="ml-auto text-[11px] font-semibold text-cyan-200">
-                      {result.genre.confidence}%
-                    </span>
-                  )}
                 </div>
               );
             })}
           </div>
-          <p className="text-slate-300 text-sm mt-3">
-            The backend detects the category from the news text automatically.
-          </p>
         </div>
 
         {/* Content */}
@@ -367,17 +360,8 @@ export function AnalysisPanel() {
                     <BrainCircuit className="w-5 h-5 text-cyan-300" />
                     <div>
                       <h4 className="text-white font-semibold">Detected genre: {result.genre.name}</h4>
-                      <p className="text-slate-300 text-sm">
-                        Confidence {result.genre.confidence}%
-                        {result.genre.matched_terms.length ? ` from: ${result.genre.matched_terms.join(', ')}` : ''}
-                      </p>
                     </div>
                   </div>
-                  {result.genre.alternatives.length > 0 && (
-                    <span className="text-xs text-slate-400">
-                      Also considered {result.genre.alternatives.join(', ')}
-                    </span>
-                  )}
                 </div>
               </div>
 

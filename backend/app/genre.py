@@ -14,6 +14,8 @@ LABEL_MAP = {
     "tech": ("general", "General News"),
 }
 
+GENRE_CONFIDENCE_THRESHOLD = 0.5
+
 
 def normalize_label(raw_label: str) -> tuple[str, str]:
     key = raw_label.strip().lower()
@@ -43,7 +45,18 @@ def detect_news_genre(text: str) -> GenreAnalysis:
             if genre_name != top_name and genre_name not in alternatives:
                 alternatives.append(genre_name)
 
-        confidence = int(max(45, min(98, round(top_score * 100))))
+        confidence = int(min(98, round(top_score * 100)))
+        if top_score < GENRE_CONFIDENCE_THRESHOLD:
+            if top_name != "General News":
+                alternatives.insert(0, top_name)
+            return GenreAnalysis(
+                id="general",
+                name="General News",
+                confidence=confidence,
+                matched_terms=[],
+                alternatives=alternatives[:3],
+            )
+
         return GenreAnalysis(
             id=top_id,
             name=top_name,
