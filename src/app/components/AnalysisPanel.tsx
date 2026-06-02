@@ -128,6 +128,11 @@ export function AnalysisPanel() {
   const isFalse = result?.verdict === 'false';
   const isTrue = result?.verdict === 'true';
   const resultTone = isFalse ? 'red' : isTrue ? 'green' : 'amber';
+  const verdictCopy = isFalse
+    ? 'the claim seems likely false.'
+    : isTrue
+      ? 'the claim seems likely true.'
+      : 'the claim needs more evidence before calling it true or false.';
   const visibleModelSignals = result?.model_signals.filter((signal) =>
     [
       'SBERT semantic match model',
@@ -335,7 +340,7 @@ export function AnalysisPanel() {
                     {result.summary}
                   </p>
                   <p className="text-slate-300 text-sm mb-3">
-                    AI confidence: {result.confidence}% - Evidence accuracy: {result.accuracy}%
+                    Based on the references and models we have, {verdictCopy}
                   </p>
                   <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
                     <motion.div
