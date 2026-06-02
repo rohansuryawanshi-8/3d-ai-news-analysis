@@ -3,8 +3,8 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "package.json": "package-lock.json, pnpm-workspace.yaml, postcss.config.mjs",
-    "vite.config.ts": "index.html, default_shadcn_theme.css",
+    "frontend/package.json": "frontend/package-lock.json, frontend/pnpm-workspace.yaml, frontend/postcss.config.mjs",
+    "frontend/vite.config.ts": "frontend/index.html, frontend/default_shadcn_theme.css",
     "README.md": "docs/ATTRIBUTIONS.md, docs/DEVELOPMENT_NOTES.md"
   },
   "files.exclude": {
@@ -12,8 +12,8 @@
     "**/.pytest_cache": true,
     "**/__pycache__": true,
     "**/*.pyc": true,
-    "dist": true,
-    "node_modules": true,
+    "frontend/dist": true,
+    "frontend/node_modules": true,
     "backend/.venv": true,
     "backend/data": true
   },
@@ -21,8 +21,8 @@
     "**/.git": true,
     "**/.pytest_cache": true,
     "**/__pycache__": true,
-    "dist": true,
-    "node_modules": true,
+    "frontend/dist": true,
+    "frontend/node_modules": true,
     "backend/.venv": true,
     "backend/data": true
   }

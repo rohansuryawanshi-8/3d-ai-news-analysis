@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "dev:backend": "cd backend && python -m uvicorn app.main:app --reload --port 8001"
+    "dev:backend": "cd ../backend && python -m uvicorn app.main:app --reload --port 8001"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
