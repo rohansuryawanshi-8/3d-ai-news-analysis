@@ -1,25 +1,54 @@
+# AI News Verification System
 
-  # 3D AI News Analysis Frontend
+A full-stack project for checking news claims against multiple evidence sources and showing an explainable verification result. The frontend is built with React and Vite, and the backend uses FastAPI with NLP-based analysis signals.
 
-  This is a code bundle for 3D AI News Analysis Frontend. The original project is available at https://www.figma.com/design/cAZPB61EW9NKqVNiss65Ts/3D-AI-News-Analysis-Frontend.
+## Project Features
 
-  ## Running the code
+- News claim input and category-based analysis.
+- Evidence collection from public news and discussion sources.
+- Verdict, confidence score, accuracy estimate, and supporting references.
+- Interactive frontend with a 3D news-themed interface.
+- FastAPI backend for text analysis and result generation.
 
-  Run `npm i` to install the dependencies.
+## Folder Structure
 
-  Run `npm run dev` to start the development server.
+```text
+.
++-- backend/          # FastAPI backend and analysis modules
++-- docs/             # Project notes and attributions
++-- src/              # React frontend source code
++-- index.html        # Vite entry file
++-- package.json      # Frontend scripts and dependencies
+`-- vite.config.ts    # Vite configuration
+```
 
-  ## Python analysis backend
+## Frontend Setup
 
-  The Analyze News panel calls a FastAPI backend at `/api/analyze`.
+```powershell
+npm install
+npm run dev
+```
 
-  ```powershell
-  cd backend
-  python -m venv .venv
-  .\.venv\Scripts\Activate.ps1
-  pip install -r requirements.txt
-  uvicorn app.main:app --reload --port 8001
-  ```
+## Backend Setup
 
-  Keep the backend running alongside `npm run dev`.
-  
+```powershell
+cd backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8001
+```
+
+Keep both the frontend and backend running while testing the complete application.
+
+## Build
+
+```powershell
+npm run build
+```
+
+## Notes
+
+- The backend endpoint used by the frontend is `/api/analyze`.
+- The local SQLite data file is kept inside `backend/data`.
+- Additional project notes are available in the `docs` folder.

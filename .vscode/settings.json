@@ -1,0 +1,29 @@
+{
+  "explorer.compactFolders": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "package.json": "package-lock.json, pnpm-workspace.yaml, postcss.config.mjs",
+    "vite.config.ts": "index.html, default_shadcn_theme.css",
+    "README.md": "docs/ATTRIBUTIONS.md, docs/DEVELOPMENT_NOTES.md"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.pytest_cache": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "dist": true,
+    "node_modules": true,
+    "backend/.venv": true,
+    "backend/data": true
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/.pytest_cache": true,
+    "**/__pycache__": true,
+    "dist": true,
+    "node_modules": true,
+    "backend/.venv": true,
+    "backend/data": true
+  }
+}
