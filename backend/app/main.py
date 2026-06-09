@@ -13,7 +13,7 @@ from .text_utils import clean_text, make_query
 from .verdict import make_verdict
 
 
-app = FastAPI(title="AI News Analysis Backend", version="1.0.0")
+app = FastAPI(title="AI News Verification System Backend", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,

@@ -207,14 +207,19 @@ export function AnalysisPanel() {
               return (
                 <div
                   key={category.id}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border transition-all duration-200 ${
+                  className={`flex items-center justify-between gap-2 px-4 py-2.5 rounded-lg border transition-all duration-200 ${
                     isDetected
                       ? 'bg-cyan-400/15 border-cyan-300/50 shadow-lg shadow-cyan-500/10'
                       : 'bg-white/5 border-white/10'
                   }`}
                 >
-                  <IconComponent className="w-4 h-4" style={{ color: category.color }} />
-                  <span className="text-white text-sm font-medium">{category.name}</span>
+                  <span className="flex items-center gap-2 min-w-0">
+                    <IconComponent className="w-4 h-4 flex-shrink-0" style={{ color: category.color }} />
+                    <span className="text-white text-sm font-medium truncate">{category.name}</span>
+                  </span>
+                  {isDetected && (
+                    <span className="text-cyan-100 text-xs font-bold">{result.genre.confidence}%</span>
+                  )}
                 </div>
               );
             })}
@@ -342,6 +347,9 @@ export function AnalysisPanel() {
                   <p className="text-slate-300 text-sm mb-3">
                     Based on the references and models we have, {verdictCopy}
                   </p>
+                  <p className="text-slate-300 text-sm mb-3">
+                    AI confidence: {result.confidence}%
+                  </p>
                   <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
@@ -365,8 +373,16 @@ export function AnalysisPanel() {
                     <BrainCircuit className="w-5 h-5 text-cyan-300" />
                     <div>
                       <h4 className="text-white font-semibold">Detected genre: {result.genre.name}</h4>
+                      <p className="text-slate-300 text-sm">
+                        Confidence {result.genre.confidence}% from: {result.genre.matched_terms[0] || result.genre.name.toLowerCase()}
+                      </p>
                     </div>
                   </div>
+                  {result.genre.alternatives.length > 0 && (
+                    <p className="text-slate-400 text-sm">
+                      Also considered {result.genre.alternatives.join(', ')}
+                    </p>
+                  )}
                 </div>
               </div>
 

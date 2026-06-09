@@ -1,4 +1,4 @@
-# AI News Analysis Backend
+# AI News Verification System Backend
 
 FastAPI backend for checking a news claim against Google News, Indian Express, Hindustan Times, and Reddit references.
 

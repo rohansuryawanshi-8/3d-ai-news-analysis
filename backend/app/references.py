@@ -31,7 +31,7 @@ async def fetch_google_news(client: httpx.AsyncClient, query: str) -> list[dict]
 
 async def fetch_reddit(client: httpx.AsyncClient, query: str) -> list[dict]:
     url = f"https://www.reddit.com/search.json?q={quote_plus(query)}&sort=relevance&t=month&limit=8"
-    response = await client.get(url, headers={"User-Agent": "ai-news-analysis-demo/1.0"})
+    response = await client.get(url, headers={"User-Agent": "ai-news-verification-system/1.0"})
     response.raise_for_status()
     payload = response.json()
     items = []

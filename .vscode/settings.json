@@ -4,8 +4,7 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "frontend/package.json": "frontend/package-lock.json, frontend/pnpm-workspace.yaml, frontend/postcss.config.mjs",
-    "frontend/vite.config.ts": "frontend/index.html, frontend/default_shadcn_theme.css",
-    "README.md": "docs/ATTRIBUTIONS.md, docs/DEVELOPMENT_NOTES.md"
+    "frontend/vite.config.ts": "frontend/index.html, frontend/default_shadcn_theme.css"
   },
   "files.exclude": {
     "**/.git": true,
